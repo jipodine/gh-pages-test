@@ -36,7 +36,7 @@ function oceanBufferStart(buffer) {
     source.buffer = oceanBuffer;
 
     oceanGain = context.createGain();
-    // oceanGain.gain.setValueAtTime(context.currentTime, dBToAmp(0) );
+    // oceanGain.gain.setValueAtTime(context.currentTime, 1);
     source.connect(oceanGain);
 
     oceanGain.connect(context.destination);
@@ -51,7 +51,7 @@ function changeVolume() {
     var volume = parseFloat(this.value);
 
     // // OK
-    // oceanGain.gain.value = dBToAmp(volume);
+    // oceanGain.gain.value = volume;
 
     var now = context.currentTime;
 
@@ -62,12 +62,6 @@ function changeVolume() {
     
     // ramp ends in lookAhead
     oceanGain.gain.linearRampToValueAtTime(
-        dBToAmp(volume), now + lookAhead);
+        volume, now + lookAhead);
     
-}
-
-
-
-function dBToAmp(dbValue) {
-    return Math.pow(10, dbValue / 20);
 }
