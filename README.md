@@ -17,6 +17,6 @@ git add *
 git commit -m "initial import"
 git branch gh-pages
 git checkout gh-pages
-# create repository on github
+# Create repository on github
 git push -u origin gh-pages
 ```

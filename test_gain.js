@@ -1,7 +1,7 @@
 window.onload = init;
 var context;
 
-var lookAhead = 1; // secondes
+var lookAhead = 1; // second
 
 var oceanUrl = 'http://www.freesound.org/data/previews/174/174763_7037-lq.mp3';
 var oceanBuffer = null;
@@ -55,7 +55,7 @@ function changeVolume() {
 
     var now = context.currentTime;
 
-    // oceanGain.gain.value is never updated on Firefox
+    // oceanGain.gain.value is never updated on Firefox 33-35
     oceanGain.gain.cancelScheduledValues(now);
     // ramp starts now
     oceanGain.gain.setValueAtTime(oceanGain.gain.value, now);
